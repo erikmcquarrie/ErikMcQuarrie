@@ -64,7 +64,7 @@ app.get('/manga/seed', (req,res) => {
       }
     })
   })
-  res.redirect('/')
+  res.redirect('/manga')
 })
 
 
@@ -99,21 +99,21 @@ app.post('/manga', (req, res) => {
         if (error) {
             console.log(error)
         }
-        res.redirect('/')
+        res.redirect('/manga')
     })
 })
 
 
 app.put('/manga/:id/', (req, res) => {
     Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
-        res.redirect('/')
+        res.redirect('/manga')
     })
 })
 
 
 app.delete('/manga/:id' , (req, res) => {
     Mangas.findOneAndDelete({title: req.params.id}, (err, data) => {
-        res.redirect('/')
+        res.redirect('/manga')
     })
 })
 
