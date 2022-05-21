@@ -99,21 +99,21 @@ app.post('/manga', (req, res) => {
         if (error) {
             console.log(error)
         }
-        res.redirect('/manga')
+        res.redirect('/')
     })
 })
 
 
 app.put('/manga/:id/', (req, res) => {
     Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
-        res.redirect('/manga')
+        res.redirect('/')
     })
 })
 
 
 app.delete('/manga/:id' , (req, res) => {
     Mangas.findOneAndDelete({title: req.params.id}, (err, data) => {
-        res.redirect('/manga')
+        res.redirect('/')
     })
 })
 
