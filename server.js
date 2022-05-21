@@ -56,7 +56,7 @@ app.get('/' , (req, res) => {
   res.redirect('/manga');
 });
 
-app.get('/manga/seed', (req,res) => {
+app.get('/seed', (req,res) => {
   seedData.forEach((manga, i) => {
     Mangas.create(seedData[i], (err, data) => {
       if (err){
