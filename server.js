@@ -7,7 +7,7 @@ const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
 const Mangas = require('./models/mangaSchema.js')
-const seed = require('./models/mangaSeed.js')
+const seedData = require('./models/mangaSeed.js')
 require('dotenv').config()
 //___________________
 //Port
@@ -57,8 +57,8 @@ app.get('/' , (req, res) => {
 });
 
 app.get('/manga/seed', (req,res) => {
-  seed.forEach((manga, i) => {
-    Mangas.create(seed[i], (err, data) => {
+  seedData.forEach((manga, i) => {
+    Mangas.create(seedData[i], (err, data) => {
       if (err){
         console.log(err.message)
       }
@@ -89,13 +89,13 @@ app.get('/manga/:id', (req, res) => {
 
 app.get('/manga/:id/edit', (req, res) => {
     Mangas.find({title: req.params.id}, (err, editData)=>{
-        res.render('edit.ejs', {data: editedData[0]})
+        res.render('edit.ejs', {data: editData[0]})
     })
 })
 
 
 app.post('/manga', (req, res) => {
-    Mangas.create(req.body, (error, createmanga) => {
+    Mangas.create(req.body, (error, createManga) => {
         if (error) {
             console.log(error)
         }
@@ -105,7 +105,7 @@ app.post('/manga', (req, res) => {
 
 
 app.put('/manga/:id/', (req, res) => {
-    Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updatedMovie) => {
+    Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
         res.redirect('/manga')
     })
 })
