@@ -6,6 +6,8 @@ const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+const Mangas = require('./models/mangaSchema.js')
+const seed = require('./models/mangaSeed.js')
 require('dotenv').config()
 //___________________
 //Port
@@ -50,10 +52,66 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+app.get('/manga/seed', (req,res) => {
+  seed.forEach((manga, i) => {
+    Mangas.create(seed[i], (err, data) => {
+      if (err){
+        console.log(err.message)
+      }
+    })
+  })
+  res.redirect('/manga')
+})
 
+
+app.get('/manga', (req, res) => {
+    Mangas.find({}, (err, mangaData) => {
+        res.render('index.ejs', {data: mangaData})
+    })
+})
+
+
+app.get('/manga/new', (req, res) => {
+    res.render('new.ejs', {})
+})
+
+
+app.get('/manga/:id', (req, res) => {
+    Mangas.find({title: req.params.id}, (err, showData)=>{
+        res.render('show.ejs', {data: showData[0]})
+    })
+})
+
+
+app.get('/manga/:id/edit', (req, res) => {
+    Mangas.find({title: req.params.id}, (err, editData)=>{
+        res.render('edit.ejs', {data: editedData[0]})
+    })
+})
+
+
+app.post('/manga', (req, res) => {
+    Mangas.create(req.body, (error, createmanga) => {
+        if (error) {
+            console.log(error)
+        }
+        res.redirect('/manga')
+    })
+})
+
+
+app.put('/manga/:id/', (req, res) => {
+    Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updatedMovie) => {
+        res.redirect('/manga')
+    })
+})
+
+
+app.delete('/manga/:id' , (req, res) => {
+    Mangas.findOneAndDelete({title: req.params.id}, (err, data) => {
+        res.redirect('/manga')
+    })
+})
 //___________________
 //Listener
 //___________________
