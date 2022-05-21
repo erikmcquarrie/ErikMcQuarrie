@@ -52,7 +52,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/manga/seed', (req,res) => {
+app.get('/seed', (req,res) => {
   seed.forEach((manga, i) => {
     Mangas.create(seed[i], (err, data) => {
       if (err){
@@ -60,56 +60,56 @@ app.get('/manga/seed', (req,res) => {
       }
     })
   })
-  res.redirect('/manga')
+  res.redirect('/')
 })
 
 
-app.get('/manga', (req, res) => {
+app.get('/', (req, res) => {
     Mangas.find({}, (err, mangaData) => {
         res.render('index.ejs', {data: mangaData})
     })
 })
 
 
-app.get('/manga/new', (req, res) => {
+app.get('/new', (req, res) => {
     res.render('new.ejs', {})
 })
 
 
-app.get('/manga/:id', (req, res) => {
+app.get('/:id', (req, res) => {
     Mangas.find({title: req.params.id}, (err, showData)=>{
         res.render('show.ejs', {data: showData[0]})
     })
 })
 
 
-app.get('/manga/:id/edit', (req, res) => {
+app.get('/:id/edit', (req, res) => {
     Mangas.find({title: req.params.id}, (err, editData)=>{
         res.render('edit.ejs', {data: editedData[0]})
     })
 })
 
 
-app.post('/manga', (req, res) => {
+app.post('/', (req, res) => {
     Mangas.create(req.body, (error, createmanga) => {
         if (error) {
             console.log(error)
         }
-        res.redirect('/manga')
+        res.redirect('/')
     })
 })
 
 
-app.put('/manga/:id/', (req, res) => {
+app.put('/:id/', (req, res) => {
     Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updatedMovie) => {
-        res.redirect('/manga')
+        res.redirect('/')
     })
 })
 
 
-app.delete('/manga/:id' , (req, res) => {
+app.delete('/:id' , (req, res) => {
     Mangas.findOneAndDelete({title: req.params.id}, (err, data) => {
-        res.redirect('/manga')
+        res.redirect('/')
     })
 })
 
