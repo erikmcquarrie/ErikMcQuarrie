@@ -1,3 +1,190 @@
 body{
+  background-image: url("https://i.pinimg.com/564x/d1/7f/48/d17f481ea207ed589e53aa7dcf48bc56.jpg");
+}
+.head{
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.indexHead{
+  margin-top: -30px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background-color: blue;
+}
+.fixedMenu{
+  display: none;
+}
+.indexHead:hover + .fixedMenu{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+  height: 50px;
+  width: 100%;
+  background-color: green;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.fixedMenu:hover{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+  height: 50px;
+  width: 100%;
+  background-color: green;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.menuItem{
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 50px;
+  width: 70px;
+  display: flex;
+  background-color: grey;
+}
+.manga{
+
+  background-color: grey;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.miniImg{
+  border-radius: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  height: 200px;
+  width: 150px;
+}
+.mangaTitle{
+  width: 150px;
+  text-align: center;
+}
+.mangalist{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+}
+.mangaContainer{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+.mangaInfo{
+  display: none;
+}
+.manga:hover + .mangaInfo{
+  display: flex;
+  background-color: none;
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+  height: 100%;
+  margin-top: auto;
+  justify-content: center;
+}
+.mangaInfo:hover {
+  display: flex;
+  background-color: none;
+  width: 80%;
+  height: auto;
+  border-radius: 20px;
+  height: 100%;
+  margin-top: auto;
+  justify-content: center;
+}
+.search{
+  display: flex;
+  margin: auto;
+}
+.sort{
+  display: flex;
+  margin: auto;
+}
+.signIn{
+  display: flex;
+  margin: auto;
+}
+.home{
+  display: flex;
+  margin: auto;
+}
+.border{
   background-color: red;
+  display: block;
+  border-style: double;
+  border-width: medium;
+  border-color: black;
+  width: 85%;
+  height: 70%;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.imgShow{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.showbuttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}
+.showbuttons{
+  display: flex;
+  justify-content: flex-start;
+
+}
+.edit{
+  height: 40px;
+  width: 75px;
+  margin-left: 5%;
+  border-radius: 20px;
+  background-color: yellow;
+}
+.delete{
+  height: 40px;
+  width: 75px;
+  margin-left: 80%;
+  border-radius: 20px;
+  background-color: red;
+}
+.info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  width: 90%;
+  background-color: white;
+  border-width: medium;
+  border-style: groove;
+  font-size: 25px;
+}
+.table{
+  margin-left: 5%;
+}
+.tableResult{
+  margin-left: 20%;
 }

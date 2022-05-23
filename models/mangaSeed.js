@@ -1,4 +1,4 @@
-module.exports= [
+module.exports = [
   {
     title: "Love in Focus",
     img: "https://cdn.myanimelist.net/images/manga/1/196301.jpg",

@@ -4,11 +4,12 @@
 const express = require('express');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
-const app = express ();
+const app = express();
 const db = mongoose.connection;
 const Mangas = require('./models/mangaSchema.js')
 const seedData = require('./models/mangaSeed.js')
 require('dotenv').config()
+
 //___________________
 //Port
 //___________________
@@ -20,6 +21,7 @@ const PORT = process.env.PORT || 3003;
 //___________________
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
+// const mongoURI = ('mongodb://localhost:3000:27017/movies')
 
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
@@ -38,10 +40,10 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //___________________
 
 //use public folder for static assets
-app.use(express.static('/public'));
+app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
+app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //use method override
@@ -52,70 +54,76 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.redirect('/manga');
-});
+// app.get('/' , (req, res) => {
+//   res.redirect('/manga');
+// });
 
 app.get('/manga/seed', (req,res) => {
   seedData.forEach((manga, i) => {
     Mangas.create(seedData[i], (err, data) => {
       if (err){
-        console.log(err.message)
+        console.log(err.message);
       }
-    })
-  })
-  res.redirect('/manga')
-})
+    });
+  });
+  res.redirect('/');
+});
 
 
-app.get('/manga', (req, res) => {
+app.get('/', (req, res) => {
     Mangas.find({}, (err, mangaData) => {
-        res.render('index.ejs', {data: mangaData})
-    })
-})
+        res.render('index.ejs', {
+          data: mangaData,
+        });
+    });
+});
 
 
-app.get('/manga/new', (req, res) => {
-    res.render('new.ejs', {})
-})
+app.get('/new', (req, res) => {
+    res.render('new.ejs', {});
+});
 
 
-app.get('/manga/:id', (req, res) => {
+app.get('/:id', (req, res) => {
     Mangas.find({title: req.params.id}, (err, showData)=>{
-        res.render('show.ejs', {data: showData[0]})
-    })
-})
+      if (err) {}
+        res.render('show.ejs', {data: showData[0]});
+    });
+});
 
 
-app.get('/manga/:id/edit', (req, res) => {
+app.get('/:id/edit', (req, res) => {
     Mangas.find({title: req.params.id}, (err, editData)=>{
-        res.render('edit.ejs', {data: editData[0]})
-    })
-})
+      if (err) {}
+        res.render('edit.ejs', {data: editData[0]});
+    });
+});
 
 
-app.post('/manga', (req, res) => {
-    Mangas.create(req.body, (error, createManga) => {
-        if (error) {
-            console.log(error)
+app.post('/', (req, res) => {
+    Mangas.create(req.body, (err, createManga) => {
+        if (err) {
+            console.log(err)
         }
-        res.redirect('/manga')
-    })
-})
+        res.redirect('/')
+    });
+});
 
 
-app.put('/manga/:id/', (req, res) => {
-    Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
-        res.redirect('/manga')
-    })
-})
-
-
-app.delete('/manga/:id' , (req, res) => {
-    Mangas.findOneAndDelete({title: req.params.id}, (err, data) => {
-        res.redirect('/manga')
-    })
-})
+// app.put('/:id/', (req, res) => {
+//     Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
+//       if (err) {}
+//         res.redirect('/')
+//     });
+// });
+//
+//
+// app.delete('/:id' , (req, res) => {
+//     Mangas.findOneAndDelete({title: req.params.id}, (err, data) => {
+//       if (err) {}
+//         res.redirect('/');
+//     });
+// });
 
 //___________________
 //Listener
