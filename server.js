@@ -111,12 +111,12 @@ app.post('/', (req, res) => {
 });
 
 
-// app.put('/:id/', (req, res) => {
-//     Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
-//       if (err) {}
-//         res.redirect('/')
-//     });
-// });
+app.put('/:id/', (req, res) => {
+    Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
+      if (err) {}
+        res.redirect('/')
+    });
+});
 //
 //
 // app.delete('/:id' , (req, res) => {
