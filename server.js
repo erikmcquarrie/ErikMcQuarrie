@@ -90,7 +90,7 @@ app.get('/new', (req, res) => {
 
 
 app.get('/:id', (req, res) => {
-    Mangas.find({_id: req.params.id}, (err, showData)=>{
+    Mangas.findById({_id: req.params.id}, (err, showData)=>{
       console.log(showData);
         res.render('show.ejs', {data: showData});
     });
@@ -111,20 +111,19 @@ app.post('/', (req, res) => {
 });
 
 
-app.put('/:id/', (req, res) => {
-    Mangas.findOneAndUpdate({title: req.params.id}, req.body, {new:true}, (err, updateManga) => {
+app.put('/:id', (req, res) => {
+    Mangas.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}, (err, updateManga) => {
       if (err) {}
         res.redirect('/')
     });
 });
 //
 //
-// app.delete('/:id' , (req, res) => {
-//     Mangas.findOneAndDelete({title: req.params.id}, (err, data) => {
-//       if (err) {}
-//         res.redirect('/');
-//     });
-// });
+app.delete('/:id' , (req, res) => {
+    Mangas.findByIdAndDelete({_id: req.params.id}, (err, data) => {
+        res.redirect('/');
+    });
+});
 
 //___________________
 //Listener

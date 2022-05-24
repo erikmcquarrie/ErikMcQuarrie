@@ -7,31 +7,127 @@
   </head>
   <body>
     <div class="indexHead">
-      <h1>show <%=data[0].title%></h1>
+      <h1><%=data.title%></h1>
     </div>
     <div class="imgShow">
-    <img src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
+    <img src="<%=data.img%>" alt="">
     </div>
 
     <div class="info">
         <table>
           <div class="table">
-          <tr>Title:</tr>
-          </div>
-          <div class="tableResult">
-          <tr>
-            I am the title
-          </tr>
+          <tr><pre>Title:               <%=data.title%></pre></tr>
           </div>
         </table>
       </div>
+      <div class="info">
+          <table>
+            <div class="table">
+            <tr><pre>Year of Release:     <%=data.releaseYear%></pre></tr>
+            </div>
+          </table>
+        </div>
+      <div class="info">
+          <table>
+            <div class="table">
+            <tr><pre>Authors:     <div class="textSize"><%=data.authors%></div></pre></tr>
+            </div>
+          </table>
+        </div>
+
+      <div class="info">
+          <table>
+            <div class="table">
+            <tr><pre>Total Volumes:       <%=data.totalVolumes%></pre></tr>
+            </div>
+          </table>
+        </div>
+
+
+      <div class="info">
+          <table>
+            <div class="table">
+            <tr><pre>On Going?            <%=data.onGoing%></pre></tr>
+            </div>
+          </table>
+        </div>
+
+        <div class="info">
+            <table>
+              <div class="table">
+              <tr><pre>Series Ended?        <%=data.ended%></pre></tr>
+              </div>
+            </table>
+          </div>
+
+          <div class="info">
+              <table>
+                <div class="table">
+                <tr><pre>Started Reading?     <%=data.startedReading%></pre></tr>
+                </div>
+              </table>
+            </div>
+
+            <div class="info">
+                <table>
+                  <div class="table">
+                  <tr><pre>Finished Reading?    <%=data.finishedReading%></pre></tr>
+                  </div>
+                </table>
+              </div>
+
+              <div class="info">
+                  <table>
+                    <div class="table">
+                    <tr><pre>Rating:              <%=data.rating%></pre></tr>
+                    </div>
+                  </table>
+                </div>
+
+                <div class="info">
+                    <table>
+                      <div class="table">
+                      <tr><pre>Anime?               <%=data.anime%></pre></tr>
+                      </div>
+                    </table>
+                  </div>
+
+
+<div class="review">
+
+
+                  <div class="info1">
+                      <table>
+
+                        <tr>Review:</tr>
+
+                      </table>
+                      </div>
+                      <div class="info1">
+                        <div class="textSize">
+
+
+                      </table>
+
+                          <tr><%=data.review%></tr>
+
+                      </table>
+                      </div>
+                    </div>
+</div>
+
 
       <div class="showbuttons">
 
     <button class="edit" type="button" name="button">
       <a href="/<%=data._id%>/edit">edit</a>
     </button>
-    <button class="delete" type="button" name="button">delete</button>
+
+    <div class="delete">
+    <form action="/<%=data._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+      </form>
+    </div>
 
       </div>
 

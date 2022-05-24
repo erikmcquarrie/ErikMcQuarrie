@@ -11,29 +11,30 @@
 
     <div class="indexHead">
     <h1>
-      Home page <%=data[0].title%>
+      Manga
     </h1>
     </div>
 
+<a  class="fixedMenu" href="/new">
+    <button  class="menuButton" type="button" name="button"></button>
+  Add Manga
+</a>
 
-    <div class="fixedMenu">
-        <div class="menuItem"><p class="home">Home</p></div>
-        <div class="menuItem"><p class="signIn">Sign In</p></div>
-        <div class="menuItem"><p class="sort">Sort</p></div>
-        <div class="menuItem"><p class="search">Search</p></div>
 
-    </div>
 
     </div>
 
     <div class="mangalist">
-      <a href="/<%=data[1]._id%>" class="mangaContainer">
+
+
+    <% for(let i =0; i < data.length; i++) { %>
+      <a href="/<%=data[i]._id%>" class="mangaContainer">
 
       <div class="manga">
         <div class="mangaTitle">
-          <p>manga title</p>
+          <p><%=data[i].title%></p>
         </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
+        <img class="miniImg" src="<%=data[i].img%>" alt="">
 
       </div>
       <div class="mangaInfo">
@@ -41,151 +42,37 @@
 
 
         <ul>
-          <li>1</li>
+          <li>Year of release: <%=data[i].releaseYear%></li>
+          <li>Authors: <%=data[i].authors%></li>
+          <li>Is the series on going?: <% if(data[i].onGoing == true) { %>
+            Yes
+          <% } else { %>
+            No
+          <% } %></li>
+          <li>Number of Volumes: <%=data[i].totalVolumes%></li>
+          <li>Personal rating: <%=data[i].rating%></li>
+          <li>Review: <%=data[i].review%></li>
+          <li>Is there an anime: <% if(data[i].anime == true) { %>
+            Yes
+          <% } else { %>
+            No
+          <% } %></li>
+
         </ul>
         </div>
       </div>
       </a>
-
-      <div class="mangaContainer">
-
-      <div class="manga">
-        <div class="mangaTitle">
-          <p>manga title</p>
-        </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
-
-      </div>
-      <div class="mangaInfo">
-        <div class="border">
+      <%  } %>
 
 
-        <ul>
-          <li>1</li>
-        </ul>
-        </div>
-      </div>
-      </div>
-
-      <div class="mangaContainer">
-
-      <div class="manga">
-        <div class="mangaTitle">
-          <p>manga title</p>
-        </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
-
-      </div>
-      <div class="mangaInfo">
-        <div class="border">
 
 
-        <ul>
-          <li>1</li>
-        </ul>
-        </div>
-      </div>
-      </div>
-
-      <div class="mangaContainer">
-
-      <div class="manga">
-        <div class="mangaTitle">
-          <p>manga title</p>
-        </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
-
-      </div>
-      <div class="mangaInfo">
-        <div class="border">
 
 
-        <ul>
-          <li>1</li>
-        </ul>
-        </div>
-      </div>
-      </div>
-
-      <div class="mangaContainer">
-
-      <div class="manga">
-        <div class="mangaTitle">
-          <p>manga title</p>
-        </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
-
-      </div>
-      <div class="mangaInfo">
-        <div class="border">
 
 
-        <ul>
-          <li>1</li>
-        </ul>
-        </div>
-      </div>
-      </div>
-
-      <div class="mangaContainer">
-
-      <div class="manga">
-        <div class="mangaTitle">
-          <p>manga title</p>
-        </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
-
-      </div>
-      <div class="mangaInfo">
-        <div class="border">
 
 
-        <ul>
-          <li>1</li>
-        </ul>
-        </div>
-      </div>
-      </div>
-
-      <div class="mangaContainer">
-
-      <div class="manga">
-        <div class="mangaTitle">
-          <p>manga title</p>
-        </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
-
-      </div>
-      <div class="mangaInfo">
-        <div class="border">
-
-
-        <ul>
-          <li>1</li>
-        </ul>
-        </div>
-      </div>
-      </div>
-
-      <div class="mangaContainer">
-
-      <div class="manga">
-        <div class="mangaTitle">
-          <p>manga title</p>
-        </div>
-        <img class="miniImg" src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
-
-      </div>
-      <div class="mangaInfo">
-        <div class="border">
-
-
-        <ul>
-          <li>1</li>
-        </ul>
-        </div>
-      </div>
-      </div>
 
 
     </div>

@@ -6,8 +6,38 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <h1><%=data[0].title%></h1>
-    <form class="" action="index.html" method="post">
-    </form>
+    <div class="head">
+
+
+    <div class="indexHead">
+
+    <h1>Add Manga</h1>
+    </div>
+
+    </div>
+    <div class="centerForm">
+
+
+    <div class="addManga">
+
+    <form action="/" method="POST">
+      <pre>Title:             </pre><input type="text" name="title">
+      <br>
+      <pre>Image link:        </pre><input type="text" name="img">
+      <br>
+      <pre>Year of release:   </pre><input type="number" name="releaseYear">
+      <br>
+      <pre>Authors:           </pre><input type="text" name="authors">
+      <br>
+      <pre>Number of Volumes: </pre><input type="number" name="totalVolumes">
+      <br>
+      <pre>Rating:            </pre><input type="number" name="rating">
+      <br>
+      <pre>Review:            </pre><input type="text" name="review">
+      <br>
+      <input type="submit" value="Submit">
+
+    </div>
+    </div>
   </body>
 </html>

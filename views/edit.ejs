@@ -6,6 +6,38 @@
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
+
+    <div class="head">
+
+
+    <div class="indexHead">
+
     <h1><%=data[0].title%></h1>
+    </div>
+
+    </div>
+
+    <div class="centerForm">
+    <div class="addManga">
+
+    <form action="/<%=data[0]._id%>?_method=PUT" method="POST">
+      <pre>Title:             </pre><input type="text" name="title" value="<%=data[0].title%>">
+      <br>
+      <pre>Image link:        </pre><input type="text" name="img" value="<%=data[0].img%>">
+      <br>
+      <pre>Year of release:   </pre><input type="number" name="releaseYear" value="<%=data[0].releaseYear%>">
+      <br>
+      <pre>Authors:           </pre><input type="text" name="authors" value="<%=data[0].authors%>">
+      <br>
+      <pre>Number of Volumes: </pre><input type="number" name="totalVolumes" value="<%=data[0].totalVolumes%>">
+      <br>
+      <pre>Rating:            </pre><input type="number" name="rating" value="<%=data[0].rating%>">
+      <br>
+      <pre>Review:            </pre><input type="text" name="review" value="<%=data[0].review%>">
+      <br>
+      <input type="submit" value="Submit">
+
+    </div>
+    </div>
   </body>
 </html>

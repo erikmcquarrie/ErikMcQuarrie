@@ -1,5 +1,5 @@
 body{
-  background-image: url("https://i.pinimg.com/564x/d1/7f/48/d17f481ea207ed589e53aa7dcf48bc56.jpg");
+  background-image: url("https://cdn.wallpapersafari.com/60/43/rmWvIp.jpg");
 }
 .head{
   position: sticky;
@@ -12,12 +12,12 @@ body{
   width: 100%;
   height: 50px;
   text-align: center;
-  background-color: blue;
-  border-style: dotted;
-  border-color: red;
+  background-color: #7698cf;
 }
 .fixedMenu{
   display: none;
+  text-decoration: none;
+  color: black;
 }
 .indexHead:hover + .fixedMenu{
   display: flex;
@@ -27,7 +27,7 @@ body{
   justify-content: space-around;
   height: 50px;
   width: 100%;
-  background-color: green;
+  background-color: ghostwhite;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -40,7 +40,7 @@ body{
   justify-content: space-around;
   height: 50px;
   width: 100%;
-  background-color: green;
+  background-color: ghostwhite;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -128,7 +128,7 @@ body{
   margin: auto;
 }
 .border{
-  background-color: red;
+  background-color: lightgrey;
   display: block;
   border-style: double;
   border-width: medium;
@@ -163,11 +163,7 @@ body{
   background-color: yellow;
 }
 .delete{
-  height: 40px;
-  width: 75px;
   margin-left: 80%;
-  border-radius: 20px;
-  background-color: red;
 }
 .info{
   display: flex;
@@ -184,9 +180,56 @@ body{
   border-style: groove;
   font-size: 25px;
 }
+.info1{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 90%;
+  background-color: white;
+  font-size: 25px;
+}
 .table{
   margin-left: 5%;
 }
 .tableResult{
   margin-left: 20%;
+}
+.centerForm{
+  display: flex;
+  justify-content: center;
+}
+.addManga{
+  margin-top: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: lightgrey;
+}
+.review{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  width: 90%;
+  background-color: white;
+  border-width: medium;
+  border-style: groove;
+  font-size: 25px;
+}
+.textSize{
+  font-size: 20px;
+}
+.menuButton{
+  opacity: 0;
+  width: 100%;
 }
