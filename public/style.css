@@ -13,6 +13,8 @@ body{
   height: 50px;
   text-align: center;
   background-color: blue;
+  border-style: dotted;
+  border-color: red;
 }
 .fixedMenu{
   display: none;

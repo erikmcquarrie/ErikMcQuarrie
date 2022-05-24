@@ -7,7 +7,7 @@
   </head>
   <body>
     <div class="indexHead">
-      <h1>show</h1>
+      <h1>show <%=data[0].title%></h1>
     </div>
     <div class="imgShow">
     <img src="https://cdn.myanimelist.net/images/manga/3/164420.jpg" alt="">
@@ -28,7 +28,9 @@
 
       <div class="showbuttons">
 
-    <button class="edit" type="button" name="button">edit</button>
+    <button class="edit" type="button" name="button">
+      <a href="/<%=data[0]._id%>/edit">edit</a>
+    </button>
     <button class="delete" type="button" name="button">delete</button>
 
       </div>

@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3003;
 //___________________
 // How to connect to the database either via heroku or locally
 const MONGODB_URI = process.env.MONGODB_URI;
-// const mongoURI = ('mongodb://localhost:3000:27017/movies')
+// const mongoURI = ('mongodb://localhost:3000:27017/mangas')
 
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
@@ -61,17 +61,22 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 app.get('/manga/seed', (req,res) => {
   seedData.forEach((manga, i) => {
     Mangas.create(seedData[i], (err, data) => {
-      if (err){
-        console.log(err.message);
-      }
     });
   });
   res.redirect('/');
 });
 
 
+// app.get('/', (req, res) => {
+//   Mangas.find({})
+//     .then((data) => {
+//       res.send(data)
+//     })
+// })
+
 app.get('/', (req, res) => {
     Mangas.find({}, (err, mangaData) => {
+      console.log(mangaData);
         res.render('index.ejs', {
           data: mangaData,
         });
@@ -85,26 +90,22 @@ app.get('/new', (req, res) => {
 
 
 app.get('/:id', (req, res) => {
-    Mangas.find({title: req.params.id}, (err, showData)=>{
-      if (err) {}
-        res.render('show.ejs', {data: showData[0]});
+    Mangas.find({_id: req.params.id}, (err, showData)=>{
+      console.log(showData);
+        res.render('show.ejs', {data: showData});
     });
 });
 
 
 app.get('/:id/edit', (req, res) => {
-    Mangas.find({title: req.params.id}, (err, editData)=>{
-      if (err) {}
-        res.render('edit.ejs', {data: editData[0]});
+    Mangas.find({_id: req.params.id}, (err, editData)=>{
+        res.render('edit.ejs', {data: editData});
     });
 });
 
 
 app.post('/', (req, res) => {
     Mangas.create(req.body, (err, createManga) => {
-        if (err) {
-            console.log(err)
-        }
         res.redirect('/')
     });
 });
