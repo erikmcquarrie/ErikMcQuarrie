@@ -1,7 +1,3 @@
-This project logs my manga collection into a web page online.
+My Name is Erik McQuarre, I am a software engineer with a huge passion for video games. You'll notice that I have both individual projects and shared projects on my github. Hust know that I greatly value projects that involve collaboration. I find working with others as a great way to keep my mind fresh and to consistantly learn new ways of doing things.
 
-I had lots of issues getting everything connected to the database properly.
-
-If I were to do this again I would spend more time getting the functionality down before anything else.
-
-I was not comfortable with this project, and I plan to keep going back to edit things, so I can get a better understanding on everything.
+I take pride in what I do, so please check out some of my projects and let me know what you think.
